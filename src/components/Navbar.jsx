@@ -17,9 +17,24 @@ const Navbar = () => {
 	};
 
 	useEffect(() => {
-		setIsAudioPlaying(true);
-		setIsIndicatorActive(true);
-	}, []);
+		audioElementRef.current.volume = 0.0;
+		const targetVolume = 0.8;
+		const step = 0.008;
+		const interval = 100;
+
+		const volumeInterval = setInterval(() => {
+			if (audioElementRef.current.volume < targetVolume) {
+				audioElementRef.current.volume = Math.min(
+					audioElementRef.current.volume + step,
+					targetVolume
+				);
+			} else {
+				clearInterval(volumeInterval);
+			}
+		}, interval);
+
+		return () => clearInterval(volumeInterval);
+	}, [isAudioPlaying]);
 
 	useEffect(() => {
 		if (isAudioPlaying) {
