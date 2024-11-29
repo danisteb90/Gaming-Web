@@ -19,11 +19,6 @@ const Hero = () => {
 
 	const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
 
-	useEffect(() => {
-		console.log(upcomingVideoIndex);
-		console.log(currentIndex);
-	}, [currentIndex, upcomingVideoIndex]);
-
 	const handleVideoLoad = () => {
 		setLoadedVideos((prev) => prev + 1);
 	};
