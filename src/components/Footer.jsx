@@ -5,6 +5,7 @@ const Footer = () => {
 				<p className="text-center text-sm md:text-left">
 					&copy; Nova 2024. All rights reserved
 				</p>
+				<div className="flex justify-center gap-4 md:justify-start"></div>
 			</div>
 		</footer>
 	);
